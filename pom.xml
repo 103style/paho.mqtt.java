@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.eclipse.paho</groupId>
 	<artifactId>java-parent</artifactId>
@@ -8,9 +9,9 @@
 
 	<properties>
 		<!-- source & target java version for MQTT Client -->
-		<mqttclient.java.version>1.7</mqttclient.java.version>
+		<mqttclient.java.version>1.8</mqttclient.java.version>
 		<!-- source & target java version for others modules -->
-		<java.version>1.7</java.version>
+		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<build.level>${maven.build.timestamp}</build.level>
 		<tycho.version>1.1.0</tycho.version>
@@ -55,8 +56,8 @@
 	<scm>
 		<url>http://git.eclipse.org/c/paho/org.eclipse.paho.mqtt.java.git</url>
 		<connection>scm:git://git.eclipse.org/gitroot/paho/org.eclipse.paho.mqtt.java.git</connection>
-	  <tag>java-parent-1.2.2</tag>
-  </scm>
+		<tag>java-parent-1.2.2</tag>
+	</scm>
 
 	<distributionManagement>
 		<repository>
@@ -132,10 +133,10 @@
 					<version>3.0.1</version>
 				</plugin>
 				<plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-        		<artifactId>maven-release-plugin</artifactId>
-        		<version>2.5.3</version>
-      		</plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5.3</version>
+				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-deploy-plugin</artifactId>
@@ -166,10 +167,10 @@
 					<version>${tycho.version}</version>
 				</plugin>
 				<plugin>
-          <groupId>org.eclipse.tycho</groupId>
-          <artifactId>tycho-versions-plugin</artifactId>
-          <version>${tycho.version}</version>
-        </plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-versions-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho.extras</groupId>
 					<artifactId>tycho-document-bundle-plugin</artifactId>
@@ -192,44 +193,40 @@
 					<version>${tycho.version}</version>
 				</plugin>
 				<plugin>
-			    <groupId>org.eluder.coveralls</groupId>
-			    <artifactId>coveralls-maven-plugin</artifactId>
-			    <version>4.3.0</version>
-			</plugin>
+					<groupId>org.eluder.coveralls</groupId>
+					<artifactId>coveralls-maven-plugin</artifactId>
+					<version>4.3.0</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
-		<plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-versions-plugin</artifactId>
-        <version>${tycho.version}</version>
-      </plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-versions-plugin</artifactId>
+				<version>${tycho.version}</version>
+			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-source-plugin</artifactId>
-		        <executions>
+				<executions>
 					<execution>
-					<id>plugin-source</id>
-					<goals>
-						<goal>plugin-source</goal>
-					</goals>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>
 			<plugin>
-				<!--
-					Use the Nexus Staging plugin as a full replacement for the standard
-					Maven Deploy plugin.
-					See https://github.com/sonatype/nexus-maven-plugins/tree/master/staging/maven-plugin
-					why this makes sense :-)
-					We can control whether we want to deploy to the Eclipse repo or Maven Central
-					by a combination of the version being a SNAPHOT or release version and property
-					skipStaging=true/false.
-					In any case we can take advantage of the plugin's "deferred deploy" feature which
-					makes sure that all artifacts of a multi-module project are deployed as a whole
-					at the end of the build process instead of deploying each module's artifacts
-					individually as part of building the module.
-				 -->
+				<!-- Use the Nexus Staging plugin as a full replacement for the standard 
+					Maven Deploy plugin. See https://github.com/sonatype/nexus-maven-plugins/tree/master/staging/maven-plugin 
+					why this makes sense :-) We can control whether we want to deploy to the 
+					Eclipse repo or Maven Central by a combination of the version being a SNAPHOT 
+					or release version and property skipStaging=true/false. In any case we can 
+					take advantage of the plugin's "deferred deploy" feature which makes sure 
+					that all artifacts of a multi-module project are deployed as a whole at the 
+					end of the build process instead of deploying each module's artifacts individually 
+					as part of building the module. -->
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
 				<version>1.6.5</version>
