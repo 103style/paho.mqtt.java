@@ -1,4 +1,6 @@
-fork form [eclipse/paho.mqtt.java](https://github.com/eclipse/paho.mqtt.java),  catch SNIServerName not found bug under Android 7
+fork form [eclipse/paho.mqtt.java](https://github.com/eclipse/paho.mqtt.java),  
+
+catch SNIServerName not found bug under Android 7 with [#666](https://github.com/eclipse/paho.mqtt.java/pull/666)
 
 
 ### Jar Download
